@@ -13,6 +13,7 @@
 
         <form method="post" action="">
             <textarea name="customJs">{{ customJs }}</textarea>
+            <input type="hidden" name="customJsNonce" value="{{ customJsNonce }}">
             <button type="submit" class="btn">{{ 'General_Save'|translate }}</button>
         </form>
     </div>

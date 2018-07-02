@@ -8,6 +8,7 @@
 namespace Piwik\Plugins\JsTrackerCustom;
 
 use Piwik\Common;
+use Piwik\Nonce;
 use Piwik\Notification;
 use Piwik\Piwik;
 use Piwik\Plugin\ControllerAdmin;
@@ -29,17 +30,25 @@ class Controller extends ControllerAdmin
             $notification = new Notification(Piwik::translate('JsTrackerCustom_FileNotWritable', $customJsFile));
             $notification->context = Notification::CONTEXT_ERROR;
             Notification\Manager::notify('JsTrackerCustom_FileNotWritable', $notification);
-        } else if ($customJs = Common::getRequestVar('customJs', '', 'string')) {
+        } elseif (($nonce = Common::getRequestVar('customJsNonce', '', 'string')) &&
+            ($customJs = Common::getRequestVar('customJs', '', 'string'))) {
+
+            Nonce::checkNonce('JsTrackerCustom.save', $nonce);
+
             file_put_contents($customJsFile, Common::unsanitizeInputValue($customJs));
 
             $instance = new CustomPiwikJs();
             $instance->updateTracker();
+
+            $notification = new Notification(Piwik::translate('General_YourChangesHaveBeenSaved'));
+            $notification->context = Notification::CONTEXT_SUCCESS;
+            Notification\Manager::notify('JsTrackerCustom_Saved', $notification);
         }
 
         $view = new View('@JsTrackerCustom/index');
         $this->setBasicVariablesView($view);
-
         $view->customJs = file_get_contents($customJsFile);
+        $view->customJsNonce = Nonce::getNonce('JsTrackerCustom.save');
 
         return $view->render();
     }
