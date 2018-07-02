@@ -1,0 +1,20 @@
+{% extends 'admin.twig' %}
+
+{% set title %}{{ 'JsTrackerCustom_JsTrackerCustom'|translate }}{% endset %}
+
+{% block content %}
+
+    <div piwik-content-block
+         content-title="{{ title|e('html_attr') }}"
+         feature="true"
+    >
+
+        <h3>{{ 'JsTrackerCustom_AddCustomJs'|translate }}</h3>
+
+        <form method="post" action="">
+            <textarea name="customJs">{{ customJs }}</textarea>
+            <button type="submit" class="btn">{{ 'General_Save'|translate }}</button>
+        </form>
+    </div>
+
+{% endblock %}
