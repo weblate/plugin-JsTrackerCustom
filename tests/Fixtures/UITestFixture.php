@@ -7,12 +7,7 @@
  */
 namespace Piwik\Plugins\JsTrackerCustom\tests\Fixtures;
 
-use Piwik\Date;
 use Piwik\Filesystem;
-use Piwik\Plugin\Manager;
-use Piwik\Plugins\SearchEngineKeywordsPerformance\MeasurableSettings;
-use Piwik\Plugins\SearchEngineKeywordsPerformance\tests\Mocks\BingClient;
-use Piwik\Plugins\SearchEngineKeywordsPerformance\tests\Mocks\GoogleClient;
 use Piwik\Tests\Framework\Fixture;
 
 class UITestFixture extends Fixture
@@ -23,7 +18,7 @@ class UITestFixture extends Fixture
     public $url       = 'http://piwik.net';
     public $apiKey   = 'dummyKey';
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->setUpWebsite();
 
@@ -31,7 +26,7 @@ class UITestFixture extends Fixture
         file_put_contents($customJsFile, '');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Filesystem::remove(__DIR__ . '/../../tracker.js');
     }

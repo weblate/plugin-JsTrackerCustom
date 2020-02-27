@@ -10,12 +10,16 @@ describe("CustomJs", function () {
 
     this.fixture = "Piwik\\Plugins\\JsTrackerCustom\\tests\\Fixtures\\UITestFixture";
 
-    it('should show custom js admin', function (done) {
-        expect.screenshot('manage').to.be.captureSelector('.pageWrap', function (page) {
-            page.load("?module=JsTrackerCustom&action=index");
-            page.sendKeys('[name="customJs"]', 'console.log("new code");');
-            page.click('button[type=submit]');
-        }, done);
+    it('should show custom js admin', async function () {
+        await page.goto("?module=JsTrackerCustom&action=index");
+        await page.waitForNetworkIdle();
+        await page.type('[name="customJs"]', 'console.log("new code");');
+        await page.click('button[type=submit]');
+        await page.waitForNetworkIdle();
+        await page.waitFor(250);
+
+        pageWrap = await page.$('.pageWrap');
+        expect(await pageWrap.screenshot()).to.matchImage('manage');
     });
 
 });
