@@ -17,6 +17,9 @@ describe("CustomJs", function () {
         await page.click('button[type=submit]');
         await page.waitForNetworkIdle();
         await page.waitFor(250);
+        await page.evaluate(function() {
+            $('textarea').css('resize', 'none');
+        });
 
         pageWrap = await page.$('.pageWrap');
         expect(await pageWrap.screenshot()).to.matchImage('manage');
