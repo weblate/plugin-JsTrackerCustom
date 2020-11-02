@@ -1,6 +1,6 @@
 # Matomo JsTrackerCustom Plugin
 
-[![Build Status](https://travis-ci.org/innocraft/plugin-JsTrackerCustom.png?branch=4.x-dev)](https://travis-ci.org/innocraft/plugin-JsTrackerCustom) 
+[![Build Status](https://travis-ci.com/innocraft/plugin-JsTrackerCustom.png?branch=4.x-dev)](https://travis-ci.com/innocraft/plugin-JsTrackerCustom) 
 
 ## Description
 
