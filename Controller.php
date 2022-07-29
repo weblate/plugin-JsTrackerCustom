@@ -26,8 +26,12 @@ class Controller extends ControllerAdmin
 
         $customJsFile = __DIR__ . '/tracker.js';
 
-        if (!is_writable($customJsFile)) {
-            $notification = new Notification(Piwik::translate('JsTrackerCustom_FileNotWritable', $customJsFile));
+        if (is_writable(__DIR__) && !file_exists($customJsFile)) {
+            file_put_contents($customJsFile, '');
+        }
+
+        if (!is_writable(__DIR__) || !is_writable($customJsFile)) {
+            $notification = new Notification(Piwik::translate('JsTrackerCustom_DirectoryOrFileNotWritable', array(__DIR__, $customJsFile)));
             $notification->context = Notification::CONTEXT_ERROR;
             Notification\Manager::notify('JsTrackerCustom_FileNotWritable', $notification);
         } elseif (($nonce = Common::getRequestVar('customJsNonce', '', 'string')) &&
