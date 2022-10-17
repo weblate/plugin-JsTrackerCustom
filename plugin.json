@@ -1,12 +1,12 @@
 {
   "name": "JsTrackerCustom",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "description": "This plugin allows you to add custom JavaScript to Matomos tracking code",
   "keywords": ["tracker"],
   "license": "GPL v3+",
   "homepage": "https://www.innocraft.com",
   "require": {
-    "matomo": ">=4.0.0-b1,<5.0.0-b1"
+    "matomo": ">=5.0.0-b1,<6.0.0-b1"
   },
   "authors": [
     {
