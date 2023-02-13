@@ -1,1 +1,8 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Dodaj niestandardowy kod JavaScript do Twojego piwik.js",
+        "DirectoryOrFileNotWritable": "Aby móc dodać własny kod JavaScript, katalog %1$s musi być zapisywalny lub plik %2$s musi być zapisywalny.",
+        "FileNotWritable": "Aby móc dodać niestandardowy kod JavaScript, plik %1$s musi być zapisywalny.",
+        "JsTrackerCustom": "Niestandardowy moduł śledzący JS"
+    }
+}
