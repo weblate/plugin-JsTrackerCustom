@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "カスタムJavaScriptコードをpiwik.jsに追加します",
+        "DirectoryOrFileNotWritable": "カスタム JavaScript を追加できるようにするには、ディレクトリ %1$s が書き込み可能であるか、ファイル %2$s が書き込み可能である必要があります。",
         "FileNotWritable": "カスタムJavaScriptを追加できるようにするには、ファイル%1$sが書き込み可能である必要があります。",
         "JsTrackerCustom": "カスタムトラッカーJS"
     }
