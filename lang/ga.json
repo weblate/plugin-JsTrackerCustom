@@ -1,1 +1,8 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Cuir cód JavaScript saincheaptha le do piwik.js",
+        "DirectoryOrFileNotWritable": "Chun JavaScript saincheaptha a chur leis, ní mór an t-eolaire %1$s a bheith inscríofa nó caithfidh an comhad %2$s a bheith inscríofa.",
+        "FileNotWritable": "Chun JavaScript saincheaptha a chur leis, ní mór an comhad %1$s a bheith inscríofa.",
+        "JsTrackerCustom": "Lorgaire Saincheaptha JS"
+    }
+}
