@@ -1,1 +1,8 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Přidání vlastního kódu JavaScriptu do souboru piwik.js",
+        "DirectoryOrFileNotWritable": "Aby bylo možné přidat vlastní JavaScript, musí být adresář %1$s zapisovatelný nebo soubor %2$s zapisovatelný.",
+        "FileNotWritable": "Aby bylo možné přidat vlastní JavaScript, musí být soubor %1$s zapisovatelný.",
+        "JsTrackerCustom": "Vlastní tracker JS"
+    }
+}
