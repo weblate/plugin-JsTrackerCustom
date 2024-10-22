@@ -1,10 +1,12 @@
 <?php
+
 /**
  * InnoCraft - the company of the makers of Piwik Analytics, the free/libre analytics platform
  *
  * @link https://www.innocraft.com
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
+
 namespace Piwik\Plugins\JsTrackerCustom;
 
 use Piwik\Common;
@@ -34,9 +36,10 @@ class Controller extends ControllerAdmin
             $notification = new Notification(Piwik::translate('JsTrackerCustom_DirectoryOrFileNotWritable', array(__DIR__, $customJsFile)));
             $notification->context = Notification::CONTEXT_ERROR;
             Notification\Manager::notify('JsTrackerCustom_FileNotWritable', $notification);
-        } elseif (($nonce = Common::getRequestVar('customJsNonce', '', 'string')) &&
-            ($customJs = Common::getRequestVar('customJs', '', 'string'))) {
-
+        } elseif (
+            ($nonce = Common::getRequestVar('customJsNonce', '', 'string')) &&
+            ($customJs = Common::getRequestVar('customJs', '', 'string'))
+        ) {
             Nonce::checkNonce('JsTrackerCustom.save', $nonce);
 
             file_put_contents($customJsFile, Common::unsanitizeInputValue($customJs));
